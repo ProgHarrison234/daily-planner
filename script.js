@@ -1,3 +1,38 @@
+//get from localStorage
+let retTask = localStorage.getItem("task");
+let parsTask = JSON.parse(retTask);
+console.log(parsTask);
+
+if (parsTask.timeBlock9 != null) {
+    console.log();
+    //$("#time-block-0").();
+    $("#time-block-0").attr("disabled", "disabled");
+}
+else if (parsTask.timeBlock10 != null) {
+    
+}
+else if (parsTask.timeBlock11 != null) {
+    
+}
+else if (parsTask.timeBlock12 != null) {
+    
+}
+else if (parsTask.timeBlock1 != null) {
+    
+}
+else if (parsTask.timeBlock2 != null) {
+    
+}
+else if (parsTask.timeBlock3 != null) {
+    
+}
+else if (parsTask.timeBlock4 != null) {
+    
+}
+else if (parsTask.timeBlock5 != null) {
+
+}
+
 // 1> create time and date tag
 function currentTime() {
     let time = setInterval(function () {
@@ -31,12 +66,13 @@ function currentTime() {
 }, 1000);
 }
 currentTime();
+    
 
 // 2> create each time block
 for (let i = 0; i < 9; i++) {
     let blocks = $("<div>");
     let hourBlock = $("<div>");
-    let timeBlock = $("<div>");
+    let timeBlock = $("<input/>");
     let hour = $("<h3>")
     let saveBtn = $("<div>")
 
@@ -45,7 +81,10 @@ for (let i = 0; i < 9; i++) {
     hourBlock.attr("class", "col-sm-1 hour");
     hour.attr("class", "hour-text")
     timeBlock.attr("class", "col-sm-10 time-block");
+    timeBlock.attr("id", "time-block-" + i);
+    timeBlock.attr("type", "text");
     saveBtn.attr("class", "col-sm-1 saveBtn")
+    saveBtn.attr("id", "time-block" + i);
 
     let time = i + 9;
     if (time < 12) {
@@ -67,6 +106,59 @@ for (let i = 0; i < 9; i++) {
     blocks.append(timeBlock);
     blocks.append(saveBtn);
 }
-// 2>
-// 3>
+// 3> Local Storage of calender
+let task = {
+    timeBlock9 : "", 
+    timeBlock10 : "",
+    timeBlock11 : "", 
+    timeBlock12 : "",
+    timeBlock1 : "", 
+    timeBlock2 : "",
+    timeBlock3 : "",
+    timeBlock4 : "",
+    timeBlock5 : ""
+}
+
+$(".saveBtn").click(function() {
+    if ($(this).attr("id") === "time-block0") {
+        let input = $("#time-block-0").val();
+        task.timeBlock9 = input;
+        console.log(task.timeBlock9);
+        $("#time-block-0").attr("disabled", "disabled");
+   }
+   else if ($(this).attr("id") === "time-block1") {
+        let input = $("#time-block-1").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block2") {
+        let input = $("#time-block-2").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block3") {
+        let input = $("#time-block-3").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block4") {
+        let input = $("#time-block-4").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block5") {
+        let input = $("#time-block-5").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block6") {
+        let input = $("#time-block-6").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block7") {
+        let input = $("#time-block-7").val();
+        console.log(input);
+   }
+   else if ($(this).attr("id") === "time-block8") {
+        let input = $("#time-block-8").val();
+        console.log(input);
+   }
+   localStorage.setItem("task", JSON.stringify(task));
+})
 // 4>
+// 5>
