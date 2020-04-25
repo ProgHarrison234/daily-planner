@@ -63,8 +63,11 @@ for (let i = 0; i < 9; i++) {
     saveBtn.attr("class", "col-sm-1 saveBtn")
     saveBtn.attr("id", "time-block" + i);
     saveBtn.attr("src", "./Assets/save-icon.png")
-
-    $(timeBlock).val(retTask["timeBlock" + i]);  //This is working
+    
+    if (retTask != null) {
+        $(timeBlock).val(retTask["timeBlock" + i]);  //This is working
+    }
+    
 
     let time = i + 9;
     if (time < 12) {
