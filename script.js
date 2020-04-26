@@ -97,15 +97,15 @@ function blockColor() {
 blockColor();
 // 3> Local Storage of calender
 let task = {
-    timeBlock0: "",
-    timeBlock1: "",
-    timeBlock2: "",
-    timeBlock3: "",
-    timeBlock4: "",
-    timeBlock5: "",
-    timeBlock6: "",
-    timeBlock7: "",
-    timeBlock8: ""
+    timeBlock0: retTask.timeBlock0 || "",
+    timeBlock1: retTask.timeBlock1 || "",
+    timeBlock2: retTask.timeBlock2 || "",
+    timeBlock3: retTask.timeBlock3 || "",
+    timeBlock4: retTask.timeBlock4 || "",
+    timeBlock5: retTask.timeBlock5 || "",
+    timeBlock6: retTask.timeBlock6 || "",
+    timeBlock7: retTask.timeBlock7 || "",
+    timeBlock8: retTask.timeBlock8 || ""
 }
 
 $(".saveBtn").click(function () {
@@ -173,5 +173,6 @@ $(".saveBtn").click(function () {
     }
     localStorage.setItem("task", JSON.stringify(task));
 })
+
 // 4>
 // 5>
